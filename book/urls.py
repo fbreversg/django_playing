@@ -8,6 +8,7 @@ from views import hello, current_datetime, hours_ahead
 urlpatterns = patterns('',
     url(r'^hello/$', hello),
     url(r'^time/$', current_datetime),
+    url(r'^timeRender/$', current_datetime_render),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
     url(r'^$', hello)
     # Examples:
