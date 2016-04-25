@@ -13,7 +13,6 @@ urlpatterns = patterns('',
                        url(r'^timeRender/$', current_datetime_render),
                        url(r'^$', hello),
                        url(r'^meta/$', display_meta),
-                       (r'^search-form/$', views.search_form),
                        (r'^search/$', views.search),
 
                        # Examples:
