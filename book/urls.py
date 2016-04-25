@@ -2,6 +2,7 @@ from django.conf.urls import patterns, url, include
 from django.contrib import admin
 from views import hello, current_datetime, hours_ahead, current_datetime_render, display_meta
 from books import views
+from contact import views as cviews
 
 admin.autodiscover()
 
@@ -14,6 +15,8 @@ urlpatterns = patterns('',
                        url(r'^$', hello),
                        url(r'^meta/$', display_meta),
                        (r'^search/$', views.search),
+                       url(r'^contact/$', cviews.contact),
+                       url(r'^contact/thanks/$', cviews.thanks),
 
                        # Examples:
                        # url(r'^$', 'book.views.home', name='home'),
