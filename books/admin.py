@@ -12,6 +12,9 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('publication_date',)  # filter
     date_hierarchy = 'publication_date'
     ordering = ('-publication_date',)
+    # fields = ('title', 'authors', 'publisher')   - publication_date non editable
+    filter_horizontal = ('authors',)  # multiselection splitted on ManyToManyField
+    raw_id_fields = ('publisher',)  # magnifier and changes select to input
 
 
 admin.site.register(Publisher)
