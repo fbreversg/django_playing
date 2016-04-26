@@ -71,4 +71,12 @@ def some_page_post(request):
     return HttpResponseRedirect('/someurl/')
 
 
+# Wrapping view functions
+def requires_login(view):
+    def new_view(request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            return HttpResponseRedirect('/accounts/login/')
+        return view(request, *args, **kwargs)
+    return new_view
+
 

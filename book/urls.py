@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
-from views import hello, current_datetime, hours_ahead, current_datetime_render, display_meta
+from views import hello, current_datetime, hours_ahead, current_datetime_render, display_meta, requires_login
 from books import views
 from contact import views as cviews
 
@@ -8,7 +8,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
                        (r'^admin/', include(admin.site.urls)),
-                       url(r'^hello/$', hello),
+                       # requiring login
+                       url(r'^hello/$', requires_login(hello)),
                        url(r'^time/plus/(\d{1,2})/$', hours_ahead),
                        url(r'^time/$', current_datetime),
                        url(r'^timeRender/$', current_datetime_render),
