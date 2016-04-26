@@ -17,6 +17,9 @@ urlpatterns = patterns('',
                        (r'^search/$', views.search),
                        url(r'^contact/$', cviews.contact),
                        url(r'^contact/thanks/$', cviews.thanks),
+                       (r'^somepage/$', views.some_page),
+                       (r'^somepage/$', views.method_splitter, {'GET': views.some_page_get, 'POST': views.some_page_post}),
+
 
                        # Examples:
                        # url(r'^$', 'book.views.home', name='home'),
